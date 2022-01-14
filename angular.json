@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-google-time-zone": {
+      "projectType": "library",
+      "root": "projects/ngx-google-time-zone",
+      "sourceRoot": "projects/ngx-google-time-zone/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-google-time-zone/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-google-time-zone/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-google-time-zone/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-google-time-zone/src/test.ts",
+            "tsConfig": "projects/ngx-google-time-zone/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-google-time-zone/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-google-time-zone"
+}
