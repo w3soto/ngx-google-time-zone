@@ -2,7 +2,12 @@ import { Inject, Injectable } from "@angular/core";
 import { HttpBackend, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { TimezoneRequest, TimezoneResponse, GOOGLE_TIME_ZONE_CONFIG, GoogleTimeZoneConfig } from "./ngx-google-time-zone.model";
+import {
+  GOOGLE_TIME_ZONE_CONFIG,
+  GoogleTimeZoneConfig,
+  TimezoneRequest,
+  TimezoneResponse
+} from "./ngx-google-time-zone.model";
 
 
 /**
@@ -28,7 +33,7 @@ export class NgxGoogleTimeZoneService {
     return this._httpClient.get<TimezoneResponse>(url);
   }
 
-  buildUrl(tzRequest: TimezoneRequest) : string {
+  buildUrl(tzRequest: TimezoneRequest): string {
     const params = {
       timestamp: Math.floor(Date.now() / 1000),
       ...tzRequest
@@ -37,13 +42,13 @@ export class NgxGoogleTimeZoneService {
     const url = new URL(this._BASE_URL);
     url.searchParams.append('location', '' + params.lat + ',' + params.lng);
     url.searchParams.append('timestamp', '' + params.timestamp);
-    
+
     if (params.language) {
       url.searchParams.append('language', params.language);
     }
 
     url.searchParams.append('key', this._tzApiConfig.apiKey);
-    
+
     return url.href;
   }
 
