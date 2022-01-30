@@ -1,27 +1,90 @@
 # NgxGoogleTimeZone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Angular service for Google's Time Zone API. 
+For more details see [Official Google Time Zone API documentation](https://developers.google.com/maps/documentation/timezone/overview).
 
-## Development server
+[GitHub](https://github.com/w3soto/ngx-google-time-zone)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
+```shell
+npm -i ngx-google-time-zone
+```
 
-## Code scaffolding
+## Example
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```typescript
+import { NgxGoogleTimeZoneModule } from "ngx-google-time-zone";
+...
 
-## Build
+@NgModule({
+  imports: [
+    ...,
+    NgxGoogleTimeZoneModule.forRoot({
+      apiKey: '---GOOGLE-API-KEY---'
+    }),
+  ],
+  ...
+})
+class AppModule { ... }
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Running unit tests
+Usage
+```typescript
+import { NgxGoogleTimeZoneService } from "ngx-google-time-zone";
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  ...
+})
+class AppComponent { 
+  
+  constructor(
+    private _gtz: NgxGoogleTimeZoneService
+  ) {}
+  
+  getTimeZone() {
+    this._gtz.getTimeZone({
+      lat: 48.743551, 
+      lng: 18.914176
+    }).subscribe(resp => console.log('TimeZoneResponse:', resp));
+  }
+  
+ }
+```
 
-## Running end-to-end tests
+## Services
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* **NgxGoogleTimeZoneService**
 
-## Further help
+```typescript
+getTimeZone(tzReq: TimeZoneRequest): Observable<TimeZoneResponse>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Interfaces
+
+* **TimeZoneRequest**
+```typescript
+export interface TimeZoneRequest {
+  lat: number,
+  lng: number,
+  timestamp?: number, // in seconds
+  language?: string
+}
+```
+
+* **TimeZoneResponse**
+```typescript
+export interface TimeZoneResponse {
+  dstOffset: number,
+  rawOffset: number,
+  status: TimeZoneStatus,
+  timeZoneId: string,
+  timeZoneName: string,
+}
+```
+
+* **TimeZoneStatus**
+```typescript
+export type TimeZoneStatus = 'OK' | 'ZERO_RESULTS' | 'OVER_DAILY_LIMIT' | 'OVER_QUERY_LIMIT' | 'REQUEST_DENIED' |
+  'INVALID_REQUEST' | 'UNKNOWN_ERROR';
+```
