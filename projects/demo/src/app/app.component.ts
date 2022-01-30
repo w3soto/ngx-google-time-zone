@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NgxGoogleTimeZoneService } from "../../../ngx-google-time-zone/src/lib/ngx-google-time-zone.service";
-import { TimeZoneResponse } from "../../../ngx-google-time-zone/src/lib/ngx-google-time-zone.model";
+import { NgxGoogleTimeZoneService, TimeZoneResponse } from "ngx-google-time-zone";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSelectChange } from "@angular/material/select";
+
 
 interface City {
   name: string,
