@@ -1,0 +1,49 @@
+:host {
+
+  display: flex;
+  justify-content: flex-start;
+  padding: 24px;
+
+  .mat-card-content {
+    width: 480px;
+    max-width: 480px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "apiKey   apiKey"
+      "cities   cities"
+      "lat      lng"
+      "btn      ."
+      "response response";
+    gap: 8px;
+  }
+
+  .apiKey {
+    grid-area: apiKey;
+  }
+
+  .cities {
+    grid-area: cities;
+  }
+
+  .lat {
+    grid-area: lat;
+  }
+
+  .lng {
+    grid-area: lng;
+  }
+
+  .btn {
+    grid-area: btn;
+    justify-self: flex-start;
+  }
+
+  .response {
+    padding-top: 16px;
+    grid-area: response;
+    pre {
+      white-space: pre-wrap;
+    }
+  }
+}

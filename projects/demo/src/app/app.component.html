@@ -1,0 +1,35 @@
+<mat-card>
+
+  <mat-card-content [formGroup]="form">
+    <mat-form-field class="apiKey" appearance="outline">
+      <mat-label>Your Google API Key</mat-label>
+      <input matInput formControlName="apiKey"/>
+    </mat-form-field>
+
+    <mat-form-field class="cities" appearance="outline">
+      <mat-label>Select City</mat-label>
+      <mat-select formControlName="city" (selectionChange)="citySelected($event)">
+        <mat-option *ngFor="let city of cities" [value]="city">{{ city.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="lat" appearance="outline">
+      <mat-label>Latitude</mat-label>
+      <input matInput formControlName="lat"/>
+    </mat-form-field>
+
+    <mat-form-field class="lng" appearance="outline">
+      <mat-label>Longitude</mat-label>
+      <input matInput formControlName="lng"/>
+    </mat-form-field>
+
+    <button mat-flat-button class="btn" color="primary" (click)="getTimeZone()">Get Time Zone</button>
+
+    <div class="response" *ngIf="response">
+      <strong>TimeZoneResponse:</strong>
+      <pre>{{ response | json }}</pre>
+    </div>
+
+  </mat-card-content>
+
+</mat-card>
