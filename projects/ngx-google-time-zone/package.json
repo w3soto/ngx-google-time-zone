@@ -1,6 +1,6 @@
 {
   "name": "ngx-google-time-zone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "homepage": "https://github.com/w3soto/ngx-google-time-zone#readme",
   "peerDependencies": {

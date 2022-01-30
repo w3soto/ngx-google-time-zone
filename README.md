@@ -1,11 +1,12 @@
 # NgxGoogleTimeZone
 
 Angular service for Google's Time Zone API. 
-For more details see [Official Google Time Zone API documentation](https://developers.google.com/maps/documentation/timezone/overview).
 
 [StackBlitz Demo](https://stackblitz.com/edit/angular-ivy-j9hem2)
 
 [GitHub](https://github.com/w3soto/ngx-google-time-zone#readme)
+
+[Official Google Time Zone API documentation](https://developers.google.com/maps/documentation/timezone/overview).
 
 ## Installation
 ```shell
