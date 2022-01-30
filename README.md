@@ -3,7 +3,9 @@
 Angular service for Google's Time Zone API. 
 For more details see [Official Google Time Zone API documentation](https://developers.google.com/maps/documentation/timezone/overview).
 
-[GitHub](https://github.com/w3soto/ngx-google-time-zone)
+[StackBlitz Demo](https://stackblitz.com/edit/angular-ivy-j9hem2)
+
+[GitHub](https://github.com/w3soto/ngx-google-time-zone#readme)
 
 ## Installation
 ```shell
@@ -11,6 +13,8 @@ npm -i ngx-google-time-zone
 ```
 
 ## Example
+
+For more details see *projects/demo* application
 
 ```typescript
 import { NgxGoogleTimeZoneModule } from "ngx-google-time-zone";
@@ -49,7 +53,7 @@ class AppComponent {
     }).subscribe(resp => console.log('TimeZoneResponse:', resp));
   }
   
- }
+}
 ```
 
 ## Services
@@ -68,7 +72,8 @@ export interface TimeZoneRequest {
   lat: number,
   lng: number,
   timestamp?: number, // in seconds
-  language?: string
+  language?: string,
+  apiKey?: string // if not provided with NgxGoogleTimeZoneModule.forRoot(...)
 }
 ```
 
