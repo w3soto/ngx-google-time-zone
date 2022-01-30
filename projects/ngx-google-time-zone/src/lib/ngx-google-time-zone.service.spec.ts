@@ -55,6 +55,7 @@ describe('NgxGoogleTimeZoneService', () => {
   });
 
   it('should build valid url', () => {
+    // @ts-ignore
     const url = service.buildUrl(TEST_REQUEST);
     expect(url).toEqual(TEST_URL);
   });

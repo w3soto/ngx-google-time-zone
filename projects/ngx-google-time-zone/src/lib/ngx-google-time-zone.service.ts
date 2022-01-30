@@ -33,7 +33,7 @@ export class NgxGoogleTimeZoneService {
     return this._httpClient.get<TimeZoneResponse>(url);
   }
 
-  buildUrl(tzRequest: TimezoneRequest): string {
+  private buildUrl(tzRequest: TimeZoneRequest): string {
     const params = {
       timestamp: Math.floor(Date.now() / 1000),
       ...tzRequest
