@@ -1,4 +1,4 @@
-import { Inject, Injectable } from "@angular/core";
+import { Inject, Injectable, Optional } from "@angular/core";
 import { HttpBackend, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
@@ -22,7 +22,7 @@ export class NgxGoogleTimeZoneService {
 
   constructor(
     handler: HttpBackend,
-    @Inject(GOOGLE_TIME_ZONE_CONFIG) private _tzApiConfig: GoogleTimeZoneConfig,
+    @Optional() @Inject(GOOGLE_TIME_ZONE_CONFIG) private _tzApiConfig: GoogleTimeZoneConfig,
   ) {
     // create new clean http client and bypass any application's interceptors
     this._httpClient = new HttpClient(handler);
@@ -36,18 +36,18 @@ export class NgxGoogleTimeZoneService {
   private buildUrl(tzRequest: TimeZoneRequest): string {
     const params = {
       timestamp: Math.floor(Date.now() / 1000),
+      apiKey: this._tzApiConfig?.apiKey,
       ...tzRequest
     };
 
     const url = new URL(this._BASE_URL);
     url.searchParams.append('location', '' + params.lat + ',' + params.lng);
     url.searchParams.append('timestamp', '' + params.timestamp);
+    url.searchParams.append('key', params.apiKey);
 
     if (params.language) {
       url.searchParams.append('language', params.language);
     }
-
-    url.searchParams.append('key', this._tzApiConfig.apiKey);
 
     return url.href;
   }

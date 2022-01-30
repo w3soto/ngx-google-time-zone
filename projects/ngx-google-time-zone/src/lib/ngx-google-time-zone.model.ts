@@ -11,7 +11,8 @@ export interface TimeZoneRequest {
   lat: number,
   lng: number,
   timestamp?: number, // in seconds
-  language?: string
+  language?: string,
+  apiKey?: string // if not provided with NgxGoogleTimeZoneModule.forRoot(...)
 }
 
 export interface TimeZoneResponse {
