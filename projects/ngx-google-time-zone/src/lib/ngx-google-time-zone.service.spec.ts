@@ -60,6 +60,12 @@ describe('NgxGoogleTimeZoneService', () => {
     expect(url).toEqual(TEST_URL);
   });
 
+  it('should build valid url with custom api-key', () => {
+    // @ts-ignore
+    const url = service.buildUrl({...TEST_REQUEST, apiKey: 'custom'});
+    expect(url).toEqual(TEST_URL.replace('key=any', 'key=custom'));
+  });
+
   it('should return timezone response', () => {
     spyHttpBackend.handle.and.returnValue(
       of(new HttpResponse({

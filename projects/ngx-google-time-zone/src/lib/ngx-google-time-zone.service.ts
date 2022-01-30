@@ -43,12 +43,10 @@ export class NgxGoogleTimeZoneService {
     const url = new URL(this._BASE_URL);
     url.searchParams.append('location', '' + params.lat + ',' + params.lng);
     url.searchParams.append('timestamp', '' + params.timestamp);
-    url.searchParams.append('key', params.apiKey);
-
     if (params.language) {
       url.searchParams.append('language', params.language);
     }
-
+    url.searchParams.append('key', params.apiKey);
     return url.href;
   }
 
