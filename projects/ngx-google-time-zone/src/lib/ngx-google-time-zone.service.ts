@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 import {
   GOOGLE_TIME_ZONE_CONFIG,
   GoogleTimeZoneConfig,
-  TimezoneRequest,
-  TimezoneResponse
+  TimeZoneRequest,
+  TimeZoneResponse
 } from "./ngx-google-time-zone.model";
 
 
@@ -28,9 +28,9 @@ export class NgxGoogleTimeZoneService {
     this._httpClient = new HttpClient(handler);
   }
 
-  getTimezone(tzRequest: TimezoneRequest): Observable<TimezoneResponse> {
+  getTimeZone(tzRequest: TimeZoneRequest): Observable<TimeZoneResponse> {
     const url = this.buildUrl(tzRequest);
-    return this._httpClient.get<TimezoneResponse>(url);
+    return this._httpClient.get<TimeZoneResponse>(url);
   }
 
   buildUrl(tzRequest: TimezoneRequest): string {

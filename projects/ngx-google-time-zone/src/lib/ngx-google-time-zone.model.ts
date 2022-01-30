@@ -7,14 +7,14 @@ export interface GoogleTimeZoneConfig {
   apiKey: string
 }
 
-export interface TimezoneRequest {
+export interface TimeZoneRequest {
   lat: number,
   lng: number,
   timestamp?: number, // in seconds
   language?: string
 }
 
-export interface TimezoneResponse {
+export interface TimeZoneResponse {
   dstOffset: number,
   rawOffset: number,
   status: TimeZoneStatus,

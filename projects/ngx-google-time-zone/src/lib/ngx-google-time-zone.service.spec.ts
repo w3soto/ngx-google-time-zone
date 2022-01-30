@@ -67,11 +67,11 @@ describe('NgxGoogleTimeZoneService', () => {
         statusText: 'OK'
       }))
     );
-    service.getTimezone(TEST_REQUEST)
+    service.getTimeZone(TEST_REQUEST)
       .subscribe(resp => {
         // @ts-ignore
         expect(resp).toEqual(TEST_RESPONSE);
-      })
+      });
     expect(spyHttpBackend.handle).toHaveBeenCalled();
   });
 
