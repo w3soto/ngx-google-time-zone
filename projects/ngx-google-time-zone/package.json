@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "license": "MIT",
   "homepage": "https://github.com/w3soto/ngx-google-time-zone#readme",
+  "keywords": ["angular", "google", "time", "zone", "service"],
   "peerDependencies": {
     "@angular/common": ">=10.0.0",
     "@angular/core": ">=10.0.0"
