@@ -83,11 +83,11 @@ export class AppComponent {
     }
 
     this._tzService.getTimeZone(this.form.value).subscribe(
-      (resp: TimeZoneResponse) => {
+      (resp: any) => {
         this.response = resp;
       },
-      resp => {
-        this.response = resp.error as TimeZoneResponse;
+      (resp: any) => {
+        this.response = resp.error;
       }
     )
   }

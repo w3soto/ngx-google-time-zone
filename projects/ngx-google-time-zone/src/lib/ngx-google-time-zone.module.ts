@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 
@@ -9,7 +8,6 @@ import { NgxGoogleTimeZoneService } from './ngx-google-time-zone.service';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     HttpClientModule
   ]
 })
