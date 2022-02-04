@@ -4,6 +4,7 @@
     <mat-form-field class="apiKey" appearance="outline">
       <mat-label>Your Google API Key</mat-label>
       <input matInput formControlName="apiKey"/>
+      <mat-error *ngIf="form.controls['apiKey'].invalid">API key is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="cities" appearance="outline">
@@ -16,11 +17,13 @@
     <mat-form-field class="lat" appearance="outline">
       <mat-label>Latitude</mat-label>
       <input matInput formControlName="lat"/>
+      <mat-error *ngIf="form.controls['lat'].invalid">Latitude is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="lng" appearance="outline">
       <mat-label>Longitude</mat-label>
       <input matInput formControlName="lng"/>
+      <mat-error *ngIf="form.controls['lng'].invalid">Longitude is required</mat-error>
     </mat-form-field>
 
     <button mat-flat-button class="btn" color="primary" (click)="getTimeZone()">Get Time Zone</button>

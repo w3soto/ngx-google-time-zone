@@ -78,16 +78,16 @@ export class AppComponent {
   getTimeZone() {
 
     if (this.form.invalid) {
-      alert('Please check form!');
+      this.form.markAllAsTouched();
       return;
     }
 
     this._tzService.getTimeZone(this.form.value).subscribe(
-      resp => {
+      (resp: TimeZoneResponse) => {
         this.response = resp;
       },
       resp => {
-        this.response = resp.error;
+        this.response = resp.error as TimeZoneResponse;
       }
     )
   }
